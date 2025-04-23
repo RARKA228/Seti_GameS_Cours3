@@ -1,0 +1,3 @@
+/mnt/c/Users/ksush/CLionProjects/Cours_Project_SetiGame/cmake-build-debug/CMakeFiles/Cours_Project_SetiGame.dir
+/mnt/c/Users/ksush/CLionProjects/Cours_Project_SetiGame/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/ksush/CLionProjects/Cours_Project_SetiGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
