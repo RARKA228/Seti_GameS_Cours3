@@ -1,122 +1,108 @@
+// server.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <errno.h>
-#include <sys/types.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 #include <time.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
-#define BUFSIZE 256
+#define BUF_SIZE 256
 #define MIN_NUM 1
 #define MAX_NUM 100
 
-
-int create_and_bind()
-{
-    int sockfd;
-    struct sockaddr_in server;
-    socklen_t addrlen = sizeof(server);
-    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+int create_and_bind() {
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd < 0)
     {
-        perror("socket");
-        exit(EXIT_FAILURE);
+        perror("socket"); exit(1);
     }
 
-    memset(&server, 0, sizeof(server));
-    server.sin_family = AF_INET;
-    server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(0);
+    struct sockaddr_in addr = {0};
+    addr.sin_family      = AF_INET;
+    addr.sin_addr.s_addr = INADDR_ANY;
+    addr.sin_port        = htons(0);     // ОС сама выберет свободный порт
 
-    if (bind(sockfd, (struct sockaddr *)&server, sizeof(server)) < 0)
+    if (bind(sockfd, (struct sockaddr*)&addr, sizeof(addr)) < 0)
     {
-        perror("bind");
-        close(sockfd);
-        exit(EXIT_FAILURE);
+        perror("bind"); exit(1);
     }
 
-    if (getsockname(sockfd, (struct sockaddr*)&server, &addrlen) < 0)
+    socklen_t len = sizeof(addr);
+    if (getsockname(sockfd, (struct sockaddr*)&addr, &len) < 0)
     {
-        perror("getsockname");
-        close(sockfd);
-        exit(EXIT_FAILURE);
+        perror("getsockname"); exit(1);
     }
-    printf("IP Address is: %s\n", ntohs(server.sin_port));
+    printf("Server listening on port %d\n", ntohs(addr.sin_port));
 
     return sockfd;
 }
 
-void handle_request (int sockfd)
-{
-    char buffer[BUFSIZE];
-    int target = (rand () % (MAX_NUM - MIN_NUM + 1))+MIN_NUM;
-    int guess;
-    int n;
+void handle_client(int fd) {
+    char buf[BUF_SIZE];
+    int target = (rand() % (MAX_NUM - MIN_NUM + 1)) + MIN_NUM;
+    int n, guess;
+    const char *reply;
 
-    sprintf(buffer, BUFSIZE,"Guess from target %d to %d\n", MIN_NUM, MAX_NUM );
-    write(sockfd, buffer, strlen(buffer));
+    // Приветствие
+    n = snprintf(buf, BUF_SIZE,
+        "Guess a number between %d and %d\n", MIN_NUM, MAX_NUM);
+    write(fd, buf, n);
 
-    while (1)
+    // Игровой цикл
+    while ((n = read(fd, buf, BUF_SIZE - 1)) > 0)
     {
-        n = read(sockfd, buffer, BUFSIZE-1);
-        if (n <= 0)
-        {
-            break;
-        }
-        buffer[n] = '\0';
-        guess = atoi(buffer);
-        const char *reply;
+        buf[n] = '\0';
+        guess = atoi(buf);
+
         if (guess < target)
         {
-            ;
+            reply = "MORE\n";
         }
+        else if (guess > target)
+        {
+            reply = "LESS\n";
+        }
+        else
+        {
+            reply = "CORRECT\n";
+        }
+        write(fd, reply, strlen(reply));
+        if (guess == target) break;
     }
+
+    close(fd);
 }
 
-int main()
-{
-    int listen_fd = create_and_bind();
-    if (listen(listen_fd, 5)< 0)
-    {
-        perror("listen");
-        exit(EXIT_FAILURE);
-    }
+int main() {
     srand(time(NULL));
 
-    while (1)
+    int listen_fd = create_and_bind();
+    if (listen(listen_fd, 5) < 0)
     {
+        perror("listen"); exit(1);
+    }
+
+    while (1)
+        {
         struct sockaddr_in client;
         socklen_t client_len = sizeof(client);
         int conn_fd = accept(listen_fd,
-            (struct sockaddr*)
-            &client,
-            &client_len);
+                             (struct sockaddr*)&client,
+                             &client_len);
         if (conn_fd < 0)
         {
             perror("accept");
             continue;
         }
-
-        pid_t pid = fork();
-        if (pid < 0)
-        {
-            perror("fork");
-            close(conn_fd);
-        }
-        else if (pid == 0)
+        if (fork() == 0)
         {
             close(listen_fd);
-            //handle_client(conn_fd);
-            close(conn_fd);
-            exit(EXIT_SUCCESS);
-        }else
-        {
-            close(conn_fd);
+            handle_client(conn_fd);
+            exit(0);
         }
+        close(conn_fd);
     }
-    close(listen_fd);
     return 0;
-    //printf("Hello, World!\n");
-
 }

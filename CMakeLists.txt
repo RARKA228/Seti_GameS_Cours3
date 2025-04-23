@@ -3,5 +3,5 @@ project(Cours_Project_SetiGame C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Cours_Project_SetiGame server.c
-        client.c)
+add_executable(server server.c)
+add_executable(client client.c)

@@ -117,24 +117,37 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Cours_Project_SetiGame
+# Target rules for targets named server
 
 # Build rule for target.
-Cours_Project_SetiGame: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Cours_Project_SetiGame
-.PHONY : Cours_Project_SetiGame
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
+.PHONY : server
 
 # fast build rule for target.
-Cours_Project_SetiGame/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/build
-.PHONY : Cours_Project_SetiGame/fast
+server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
+
+#=============================================================================
+# Target rules for targets named client
+
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
 
 client.o: client.c.o
 .PHONY : client.o
 
 # target to build an object file
 client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/client.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.c.o
 .PHONY : client.c.o
 
 client.i: client.c.i
@@ -142,7 +155,7 @@ client.i: client.c.i
 
 # target to preprocess a source file
 client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/client.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.c.i
 .PHONY : client.c.i
 
 client.s: client.c.s
@@ -150,7 +163,7 @@ client.s: client.c.s
 
 # target to generate assembly for a file
 client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/client.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/client.c.s
 .PHONY : client.c.s
 
 server.o: server.c.o
@@ -158,7 +171,7 @@ server.o: server.c.o
 
 # target to build an object file
 server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/server.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server.c.o
 .PHONY : server.c.o
 
 server.i: server.c.i
@@ -166,7 +179,7 @@ server.i: server.c.i
 
 # target to preprocess a source file
 server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/server.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server.c.i
 .PHONY : server.c.i
 
 server.s: server.c.s
@@ -174,7 +187,7 @@ server.s: server.c.s
 
 # target to generate assembly for a file
 server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cours_Project_SetiGame.dir/build.make CMakeFiles/Cours_Project_SetiGame.dir/server.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server.c.s
 .PHONY : server.c.s
 
 # Help Target
@@ -185,7 +198,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Cours_Project_SetiGame"
+	@echo "... client"
+	@echo "... server"
 	@echo "... client.o"
 	@echo "... client.i"
 	@echo "... client.s"
