@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -14,6 +15,7 @@
 
 int create_and_bind() {
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    printf("Socket created %d \n", sockfd);
     if (sockfd < 0)
     {
         perror("socket"); exit(1);
@@ -36,12 +38,14 @@ int create_and_bind() {
     }
     printf("Server listening on port %d\n", ntohs(addr.sin_port));
 
+
     return sockfd;
 }
 
-void handle_client(int fd) {
+void handle_client(int fd, struct sockaddr_in *client_addr) {
     char buf[BUF_SIZE];
-    int target = (rand() % (MAX_NUM - MIN_NUM + 1)) + MIN_NUM;
+    srand(time(NULL) ^ getpid());
+    int target_number = (rand() % (MAX_NUM - MIN_NUM + 1)) + MIN_NUM;
     int n, guess;
     const char *reply;
 
@@ -51,16 +55,25 @@ void handle_client(int fd) {
     write(fd, buf, n);
 
     // Игровой цикл
+    char client_ip[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &client_addr->sin_addr, &client_ip, INET_ADDRSTRLEN);
+    printf("New client: %s, %d, PID %d ,target number = %d\n",
+        client_ip, ntohs(client_addr->sin_port),getpid() ,target_number);
     while ((n = read(fd, buf, BUF_SIZE - 1)) > 0)
     {
         buf[n] = '\0';
+        if (strncmp(buf, "exit", 4) == 0)
+        {
+            printf("Exiting...\n");
+            break;
+        }
         guess = atoi(buf);
 
-        if (guess < target)
+        if (guess < target_number)
         {
             reply = "MORE\n";
         }
-        else if (guess > target)
+        else if (guess > target_number)
         {
             reply = "LESS\n";
         }
@@ -69,9 +82,9 @@ void handle_client(int fd) {
             reply = "CORRECT\n";
         }
         write(fd, reply, strlen(reply));
-        if (guess == target) break;
+        if (guess == target_number) break;
     }
-
+    printf("Client disconnected\n :%d ", getpid());
     close(fd);
 }
 
@@ -86,11 +99,14 @@ int main() {
 
     while (1)
         {
-        struct sockaddr_in client;
-        socklen_t client_len = sizeof(client);
+        struct sockaddr_in client_addr;
+        socklen_t client_len = sizeof(client_addr);
+        char client_ip[INET_ADDRSTRLEN];
         int conn_fd = accept(listen_fd,
-                             (struct sockaddr*)&client,
+                             (struct sockaddr*)&client_addr,
                              &client_len);
+
+        printf("Socket = %d :", conn_fd);
         if (conn_fd < 0)
         {
             perror("accept");
@@ -99,7 +115,7 @@ int main() {
         if (fork() == 0)
         {
             close(listen_fd);
-            handle_client(conn_fd);
+            handle_client(conn_fd, &client_addr);
             exit(0);
         }
         close(conn_fd);

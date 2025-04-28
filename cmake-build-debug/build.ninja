@@ -32,80 +32,115 @@ CONFIGURATION = Debug
 #############################################
 # Include rules file.
 
-include CMakeFiles/rules.ninja
+include CMakeFiles\rules.ninja
 
 # =============================================================================
 
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/ksush/CLionProjects/Cours_Project_SetiGame/cmake-build-debug/
+cmake_ninja_workdir = C$:\Users\ksush\CLionProjects\Cours_Project_SetiGame\cmake-build-debug\
 # =============================================================================
-# Object build statements for EXECUTABLE target Cours_Project_SetiGame
+# Object build statements for EXECUTABLE target server
 
 
 #############################################
-# Order-only phony target for Cours_Project_SetiGame
+# Order-only phony target for server
 
-build cmake_object_order_depends_target_Cours_Project_SetiGame: phony || .
+build cmake_object_order_depends_target_server: phony || .
 
-build CMakeFiles/Cours_Project_SetiGame.dir/server.c.obj: C_COMPILER__Cours_Project_SetiGame_unscanned_Debug C$:/Users/ksush/CLionProjects/Cours_Project_SetiGame/server.c || cmake_object_order_depends_target_Cours_Project_SetiGame
-  DEP_FILE = CMakeFiles\Cours_Project_SetiGame.dir\server.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Cours_Project_SetiGame.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cours_Project_SetiGame.dir
-
-build CMakeFiles/Cours_Project_SetiGame.dir/client.c.obj: C_COMPILER__Cours_Project_SetiGame_unscanned_Debug C$:/Users/ksush/CLionProjects/Cours_Project_SetiGame/client.c || cmake_object_order_depends_target_Cours_Project_SetiGame
-  DEP_FILE = CMakeFiles\Cours_Project_SetiGame.dir\client.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Cours_Project_SetiGame.dir
-  OBJECT_FILE_DIR = CMakeFiles\Cours_Project_SetiGame.dir
+build CMakeFiles\server.dir\server.c.obj: C_COMPILER__server_unscanned_Debug C$:\Users\ksush\CLionProjects\Cours_Project_SetiGame\server.c || cmake_object_order_depends_target_server
+  FLAGS = /DWIN32 /D_WINDOWS /Ob0 /Od /RTC1 -std:c11 -MDd -Zi
+  OBJECT_DIR = CMakeFiles\server.dir
+  OBJECT_FILE_DIR = CMakeFiles\server.dir
+  TARGET_COMPILE_PDB = CMakeFiles\server.dir\
+  TARGET_PDB = server.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Cours_Project_SetiGame
+# Link build statements for EXECUTABLE target server
 
 
 #############################################
-# Link the executable Cours_Project_SetiGame.exe
+# Link the executable server.exe
 
-build Cours_Project_SetiGame.exe: C_EXECUTABLE_LINKER__Cours_Project_SetiGame_Debug CMakeFiles/Cours_Project_SetiGame.dir/server.c.obj CMakeFiles/Cours_Project_SetiGame.dir/client.c.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Cours_Project_SetiGame.dir
+build server.exe: C_EXECUTABLE_LINKER__server_Debug CMakeFiles\server.dir\server.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /Ob0 /Od /RTC1 -MDd -Zi
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\server.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = Cours_Project_SetiGame.exe
-  TARGET_IMPLIB = libCours_Project_SetiGame.dll.a
-  TARGET_PDB = Cours_Project_SetiGame.exe.dbg
+  TARGET_COMPILE_PDB = CMakeFiles\server.dir\
+  TARGET_FILE = server.exe
+  TARGET_IMPLIB = server.lib
+  TARGET_PDB = server.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target client
+
+
+#############################################
+# Order-only phony target for client
+
+build cmake_object_order_depends_target_client: phony || .
+
+build CMakeFiles\client.dir\client.c.obj: C_COMPILER__client_unscanned_Debug C$:\Users\ksush\CLionProjects\Cours_Project_SetiGame\client.c || cmake_object_order_depends_target_client
+  FLAGS = /DWIN32 /D_WINDOWS /Ob0 /Od /RTC1 -std:c11 -MDd -Zi
+  OBJECT_DIR = CMakeFiles\client.dir
+  OBJECT_FILE_DIR = CMakeFiles\client.dir
+  TARGET_COMPILE_PDB = CMakeFiles\client.dir\
+  TARGET_PDB = client.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target client
+
+
+#############################################
+# Link the executable client.exe
+
+build client.exe: C_EXECUTABLE_LINKER__client_Debug CMakeFiles\client.dir\client.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /Ob0 /Od /RTC1 -MDd -Zi
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\client.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\client.dir\
+  TARGET_FILE = client.exe
+  TARGET_IMPLIB = client.lib
+  TARGET_PDB = client.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\ksush\CLionProjects\Cours_Project_SetiGame\cmake-build-debug && C:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build edit_cache: phony CMakeFiles/edit_cache.util
+build edit_cache: phony CMakeFiles\edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\ksush\CLionProjects\Cours_Project_SetiGame\cmake-build-debug && C:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\ksush\CLionProjects\Cours_Project_SetiGame -BC:\Users\ksush\CLionProjects\Cours_Project_SetiGame\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Target aliases.
 
-build Cours_Project_SetiGame: phony Cours_Project_SetiGame.exe
+build client: phony client.exe
+
+build server: phony server.exe
 
 # =============================================================================
 # Folder targets.
@@ -115,7 +150,7 @@ build Cours_Project_SetiGame: phony Cours_Project_SetiGame.exe
 #############################################
 # Folder: C:/Users/ksush/CLionProjects/Cours_Project_SetiGame/cmake-build-debug
 
-build all: phony Cours_Project_SetiGame.exe
+build all: phony server.exe client.exe
 
 # =============================================================================
 # Built-in targets
@@ -124,14 +159,14 @@ build all: phony Cours_Project_SetiGame.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake C$:/Users/ksush/CLionProjects/Cours_Project_SetiGame/CMakeLists.txt CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeRCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCCompiler.cmake.in C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCCompilerABI.c C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCompilerIdDetection.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompilerABI.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompilerId.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompilerSupport.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineRCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineSystem.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeFindBinUtils.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeParseLibraryArchitecture.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeRCCompiler.cmake.in C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeRCInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeSystem.cmake.in C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeTestCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeTestCompilerCommon.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeTestRCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\CrayClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\LCC-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\MSVC.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\NVHPC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\OrangeC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\TIClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Tasking-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Internal\CMakeDetermineLinkerId.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Internal\FeatureTesting.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake C$:\Users\ksush\CLionProjects\Cours_Project_SetiGame\CMakeLists.txt CMakeCache.txt CMakeFiles\3.30.5\CMakeCCompiler.cmake CMakeFiles\3.30.5\CMakeRCCompiler.cmake CMakeFiles\3.30.5\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows.cmake C$:/Users/ksush/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake C$:/Users/ksush/CLionProjects/Cours_Project_SetiGame/CMakeLists.txt CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeRCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
+build C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCCompiler.cmake.in C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCCompilerABI.c C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeCompilerIdDetection.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompilerABI.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompilerId.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineCompilerSupport.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineRCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeDetermineSystem.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeFindBinUtils.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeGenericSystem.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeParseImplicitIncludeInfo.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeParseImplicitLinkInfo.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeParseLibraryArchitecture.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeRCCompiler.cmake.in C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeRCInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeSystem.cmake.in C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeTestCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeTestCompilerCommon.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\CMakeTestRCCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\ADSP-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\ARMCC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\ARMClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\AppleClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Borland-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Bruce-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Clang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Clang-DetermineCompilerInternal.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Compaq-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Cray-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\CrayClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Embarcadero-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Fujitsu-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\GHS-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\GNU-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\HP-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IAR-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Intel-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\LCC-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\MSVC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\MSVC.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\NVHPC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\NVIDIA-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\OrangeC-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\PGI-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\PathScale-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\SCO-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\SDCC-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\SunPro-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\TI-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\TIClang-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Tasking-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\Watcom-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\XL-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\XLClang-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Compiler\zOS-C-DetermineCompiler.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Internal\CMakeDetermineLinkerId.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Internal\FeatureTesting.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\Windows.cmake C$:\Users\ksush\AppData\Local\Programs\CLion\bin\cmake\win\x64\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake C$:\Users\ksush\CLionProjects\Cours_Project_SetiGame\CMakeLists.txt CMakeCache.txt CMakeFiles\3.30.5\CMakeCCompiler.cmake CMakeFiles\3.30.5\CMakeRCCompiler.cmake CMakeFiles\3.30.5\CMakeSystem.cmake: phony
 
 
 #############################################

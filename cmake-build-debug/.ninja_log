@@ -1,6 +1,3 @@
 # ninja log v6
-6	103	7671025911624360	CMakeFiles/Cours_Project_SetiGame.dir/main.c.obj	fbf0f93c65a74580
 111	243	7671035073401153	Cours_Project_SetiGame.exe	ceb46163319df362
-3	111	7671035072325210	CMakeFiles/Cours_Project_SetiGame.dir/server.c.obj	fb8ce84a2be42d74
-5	251	7671039848326847	build.ninja	482e67fad6715126
-7	78	7671035072370952	CMakeFiles/Cours_Project_SetiGame.dir/client.c.obj	c46b10875bed5a9a
+5	251	7673607742328405	build.ninja	482e67fad6715126
